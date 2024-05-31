@@ -1,7 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoriesController;
 
 Route::get('/', function () {
-    return view('dashboard');
+    $title = "Dashboard";
+    return view('dashboard', [
+        'title' => $title,
+    ]);
 });
+
+
+Route::resource('categories', CategoriesController::class);
