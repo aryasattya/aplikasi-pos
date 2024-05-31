@@ -26,7 +26,7 @@
                        <div class="card-body">
                            <div class="form-group">
                                <label for="name">Kategori Barang</label>
-                               <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}>
+                               <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}">
                            </div>
 
                        </div>
@@ -34,7 +34,7 @@
                            <div class="card-body">
                                <div class="form-group">
                                    <label for="description">Deskripsi</label>
-                                   <input type="text" class="form-control" id="description" name="description" value="{{ old('name') }}>
+                                   <input type="text" class="form-control" id="description" name="description" value="{{ old('name') }}">
                                </div>
                            </div>
                        </div>

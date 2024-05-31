@@ -67,9 +67,9 @@ public function index(Request $request)
         return redirect()->route('categories.index')->with('success', 'Kategori berhasil diperbarui.');
     }
 
-    public function destroy(Categories $categories)
+    public function destroy(Categories $category)
     {
-        $categories->delete();
+        $category->delete();
 
         return redirect()->route('categories.index')->with('success', 'categories berhasil dihapus.');
     }
