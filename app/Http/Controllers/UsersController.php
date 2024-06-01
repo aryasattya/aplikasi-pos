@@ -46,8 +46,10 @@ class UsersController extends Controller
 
 
     public function edit(User $user)
+
     {
-        return view('users.edit', compact('user'));
+        $title = 'Edit User';
+        return view('users.edit', compact('user', 'title'));
     }
 
   

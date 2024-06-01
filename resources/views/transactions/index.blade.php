@@ -14,7 +14,7 @@
                         <div class="card-header">
                             <h1 class="card-title">{{$title}}</h1>
                             <!-- Search form -->
-                            <form id="search-form" class="form-inline float-right" action="{{ route('products.index') }}"
+                            <form id="search-form" class="form-inline float-right" action="{{ route('users.index') }}"
                                 method="GET">
                                 <div class="input-group">
                                     <input type="text" id="search-input" name="search" class="form-control"
@@ -39,33 +39,34 @@
                             <table id="categories" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th>Nama</th>
-                                        <th>Harga</th>
-                                        <th>Stok</th>
-                                        <th>kategori</th>
+                                        <th>kostumer</th>
+                                        <th>Produk</th>
+                                        <th>User</th>
+                                        <th>Jumlah Produk</th>
+                                        <th>Total Harga</th>
+                                        <th>Tanggal Transaksi</th>
                                         <th>Aksi</th>
 
                                     </tr>
                                 </thead>
                                 <tbody>
 
-                                    @foreach ($products as $data)
+                                    @foreach ($transactions as $data)
                                         <tr>
-                                            <td>{{ $data->name }}</td>
-                                            <td>{{ $data->price }}</td>
+                                            <td>{{ $data->customer->name }}</td>
+                                            <td>{{ $data->product->name }}</td>
+                                            <td>{{ $data->user->username }}</td>
                                             <td>{{ $data->quantity }}</td>
-                                            <td>
-                                                @if(!empty($data->category) && !empty($data->category->name))
-                                                {{ $data->category->name }}
-                                            @else
-                                                <p>Kategori Tidak Tersedia.</p>
-                                            @endif
-                                            </td>
+                                            <td>Rp.{{ $data->total_price}}</td>
+                                            <td>{{ $data->date }}</td>
+
+                                            
+                                
                                             <td>
 
-                                                <a href="{{ route('products.edit', $data->id) }}"
+                                                <a href="{{ route('transactions.edit', $data->id) }}"
                                                     class="btn btn-warning btn-sm">Edit</a>
-                                                    <form id="delete-form-{{ $data->id }}" action="{{ route('products.destroy', $data->id) }}" method="POST" style="display:inline;">
+                                                    <form id="delete-form-{{ $data->id }}" action="{{ route('transactions.destroy', $data->id) }}" method="POST" style="display:inline;">
                                                       @csrf
                                                       @method('DELETE')
                                                       <button type="button" class="btn btn-danger btn-sm" onclick="confirmDeletion({{ $data->id }})">Hapus</button>
