@@ -14,7 +14,7 @@
                         <div class="card-header">
                             <h1 class="card-title">{{$title}}</h1>
                             <!-- Search form -->
-                            <form id="search-form" class="form-inline float-right" action="{{ route('products.index') }}"
+                            <form id="search-form" class="form-inline float-right" action="{{ route('customers.index') }}"
                                 method="GET">
                                 <div class="input-group">
                                     <input type="text" id="search-input" name="search" class="form-control"
@@ -40,32 +40,26 @@
                                 <thead>
                                     <tr>
                                         <th>Nama</th>
-                                        <th>Harga</th>
-                                        <th>Stok</th>
-                                        <th>kategori</th>
+                                        <th>Email</th>
+                                        <th>No.Hp</th>
+                                        <th>Alamat</th>
                                         <th>Aksi</th>
 
                                     </tr>
                                 </thead>
                                 <tbody>
 
-                                    @foreach ($products as $data)
+                                    @foreach ($customers as $data)
                                         <tr>
                                             <td>{{ $data->name }}</td>
-                                            <td>{{ $data->price }}</td>
-                                            <td>{{ $data->quantity }}</td>
-                                            <td>
-                                                @if(!empty($data->category) && !empty($data->category->name))
-                                                {{ $data->category->name }}
-                                            @else
-                                                <p>Kategori Tidak Tersedia.</p>
-                                            @endif
-                                            </td>
+                                            <td>{{ $data->email }}</td>
+                                            <td>{{ $data->phone }}</td>
+                                            <td>{{ $data->address}}</td>
                                             <td>
 
-                                                <a href="{{ route('products.edit', $data->id) }}"
+                                                <a href="{{ route('customers.edit', $data->id) }}"
                                                     class="btn btn-warning btn-sm">Edit</a>
-                                                    <form id="delete-form-{{ $data->id }}" action="{{ route('products.destroy', $data->id) }}" method="POST" style="display:inline;">
+                                                    <form id="delete-form-{{ $data->id }}" action="{{ route('customers.destroy', $data->id) }}" method="POST" style="display:inline;">
                                                       @csrf
                                                       @method('DELETE')
                                                       <button type="button" class="btn btn-danger btn-sm" onclick="confirmDeletion({{ $data->id }})">Hapus</button>

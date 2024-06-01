@@ -50,7 +50,7 @@ class ProductsController extends Controller
         // Buat produk baru
         Products::create($request->all());
 
-        return redirect()->route('products.index')->with('success', 'Product created successfully.');
+        return redirect()->route('products.index')->with('success', 'Product berhasil ditambah.');
     }
     public function edit(Products $product)
     {

@@ -21,47 +21,43 @@
                    </div>
                    <!-- /.card-header -->
                    <!-- form start -->
-                   <form action="{{ route('products.update', $product->id) }}" method="POST">
+                   <form action="{{ route('customers.update', $customer->id) }}" method="POST">
                        @csrf
                        @method('PUT')
                        <div class="card-body">
                            <div class="form-group">
                                <label for="name">Nama Barang</label>
                                <input type="text" class="form-control" id="name" name="name"
-                                   value="{{ $product->name }}">
+                                   value="{{ $customer->name }}">
                            </div>
 
                        </div>
 
                        <div class="card-body">
                            <div class="form-group">
-                               <label for="price">Harga</label>
-                               <input type="text" class="form-control" id="price" name="price"
-                                   value="{{ $product->price }}">
+                               <label for="email">Email</label>
+                               <input type="email" class="form-control" id="email" name="email"
+                                   value="{{ $customer->email }}">
                            </div>
                        </div>
 
                        <div class="card-body">
                            <div class="form-group">
-                               <label for="quantity">Stok</label>
-                               <input type="text" class="form-control" id="quantity" name="quantity"
-                                   value="{{ $product->quantity }}">
+                               <label for="address">phone</label>
+                               <input type="text" class="form-control" id="phone" name="phone"
+                                   value="{{ $customer->phone }}">
                            </div>
                        </div>
 
+
                        <div class="card-body">
-                           <div class="form-group">
-                               <label for="category_id">Category</label>
-                               <select name="category_id" id="category_id" class="form-control">
-                                   @foreach ($categories as $item)
-                                   <option value="{{ $item->id }}"
-                                    {{ old('category_id', $product->category_id) == $item->id ? 'selected' : '' }}>
-                                    {{ $item->name }}
-                                </option>
-                                   @endforeach
-                               </select>
-                           </div>
-                       </div>
+                        <div class="form-group">
+                            <label for="address">alamat</label>
+                            <input type="text" class="form-control" id="address" name="address"
+                                value="{{ $customer->address }}">
+                        </div>
+                    </div>
+
                </div>
                <!-- /.card-body -->
 

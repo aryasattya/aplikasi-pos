@@ -21,11 +21,11 @@
                    </div>
                    <!-- /.card-header -->
                    <!-- form start -->
-                   <form action="{{ route('products.store') }}" method="POST">
+                   <form action="{{ route('customers.store') }}" method="POST">
                        @csrf
                        <div class="card-body">
                            <div class="form-group">
-                               <label for="name">Nama Barang</label>
+                               <label for="name">Nama Kostumer</label>
                                <input type="text" class="form-control" id="name" name="name"
                                    value="{{ old('name') }}">
                            </div>
@@ -34,31 +34,28 @@
 
                        <div class="card-body">
                            <div class="form-group">
-                               <label for="price">Harga</label>
-                               <input type="text" class="form-control" id="price" name="price"
-                                   value="{{ old('price') }}">
+                               <label for="price">Email</label>
+                               <input type="email" class="form-control" id="email" name="email"
+                                   value="{{ old('email') }}">
                            </div>
                        </div>
 
                        <div class="card-body">
                            <div class="form-group">
-                               <label for="quantity">Stok</label>
-                               <input type="text" class="form-control" id="quantity" name="quantity"
-                                   value="{{ old('quantity') }}">
+                               <label for="phone">NO.Hp</label>
+                               <input type="text" class="form-control" id="phone" name="phone"
+                                   value="{{ old('phone') }}">
                            </div>
                        </div>
-
                        <div class="card-body">
-                           <div class="form-group">
-                               <label for="category_id">Category</label>
-                               <select name="category_id" id="category_id" class="form-control">
-                                   @foreach ($categories as $item)
-                                       <option value="{{ $item->id }}" class="form-control">{{ $item->name }}
-                                       </option>
-                                   @endforeach
-                               </select>
-                           </div>
-                       </div>
+                        <div class="form-group">
+                            <label for="address">Alamat</label>
+                            <input type="text" class="form-control" id="address" name="address"
+                                value="{{ old('address') }}">
+                        </div>
+                    </div>
+
+                      
                </div>
                <!-- /.card-body -->
 
